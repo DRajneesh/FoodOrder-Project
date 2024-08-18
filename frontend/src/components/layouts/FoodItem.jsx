@@ -2,7 +2,7 @@ import React from "react";
 import { useAlert } from "react-alert";
 import { FaRupeeSign } from "react-icons/fa";
 
-export default function FoodItem({ fooditem, restaurant }) {
+export default function FoodItem({ fooditem ,restaurant}) {
    const alert=useAlert();
 
   return (
@@ -11,7 +11,7 @@ export default function FoodItem({ fooditem, restaurant }) {
         <img
           src={fooditem.images[0].url}
           alt={fooditem.name}
-          className="card-img top mx auto"
+          className="card-img-top mx-auto"
         />
         {/* Heading and description */}
         <div className="card-body d-flex flex-column">

@@ -51,7 +51,7 @@ const submitHandler =(e) =>{
   formData.set("passwordConfirm",passwordConfirm);
   formData.set("phoneNumber",phoneNumber);
   if (avatar ===""){
-    formData.set(avatar,"/images/images.png");
+    formData.set("avatar","/images/images.png");
 
   }else{
     formData.set("avatar",avatar);
@@ -62,7 +62,7 @@ const submitHandler =(e) =>{
 };
 
 const onChange =(e) =>{
-if(e.target,name ==="avatar"){
+if(e.target.name ==="avatar"){
   const reader=new FileReader();
   reader.onload =()=>{
     if(reader.readyState===2){

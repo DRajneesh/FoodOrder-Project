@@ -1,6 +1,4 @@
 import { GET_MENU_FAIL, GET_MENU_REQUEST, GET_MENU_SUCCESS } from "../constants/menuConstant";
-import { ALL_RESTAURANTS_FAIL,ALL_RESTAURANTS_REQUEST, ALL_RESTAURANTS_SUCCESS } from "../constants/restaurantConstant";
-
 
 const initialState ={
     menus :[],

@@ -1,4 +1,4 @@
-import Restaurant from "../components/layouts/Restaurant";
+// import Restaurant from "../components/layouts/Restaurant";
 import {
     ALL_RESTAURANTS_FAIL,
   ALL_RESTAURANTS_REQUEST,
