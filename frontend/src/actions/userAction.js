@@ -26,6 +26,7 @@ import {
 } from "../constants/userConstant";
 import { CLEAR_ERROR } from "../constants/restaurantConstant";
 import Header from "../components/layouts/Header";
+import { CLEAR_CART } from "../constants/cartConstant";
 
 //login
 export const login = (email, password) => async (dispatch) => {
@@ -124,6 +125,7 @@ export const logout = () => async (dispatch) => {
     dispatch({
       type: LOGOUT_SUCCESS,
     });
+    dispatch({type:CLEAR_CART});
   } catch (error) {
     dispatch({
       type: LOGOUT_FAIL,

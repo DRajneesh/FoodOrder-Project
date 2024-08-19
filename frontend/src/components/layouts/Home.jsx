@@ -37,9 +37,9 @@ const handleToggleVegOnly=()=>{
   return (
     <>
       <CountRestaurant />
-      {restaurantsLoading ? (
+      {restaurantsLoading ?(
         <Loader />
-      ) : restaurantsError ? (
+       ) : restaurantsError ? (
         <Message variant="danger">{restaurantsError}</Message>
       ) : (
         <>
@@ -50,8 +50,8 @@ const handleToggleVegOnly=()=>{
               <button className="sort_rate p-3" onClick={handleSortByRatings}>Sort By Rating</button>
             </div>
             <div className="row mt-4">
-              {restaurants
-                ? (restaurants.map((restaurant) => 
+              {restaurants? (
+                restaurants.map((restaurant) => 
                   !showVegOnly || (showVegOnly && restaurant.isVeg) ?(
                     <Restaurant key={restaurant._id} restaurant={restaurant} />
                 ): null
