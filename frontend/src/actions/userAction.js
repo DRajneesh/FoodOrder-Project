@@ -166,6 +166,8 @@ export const updatePassword = (passwords) => async (dispatch) => {
   }
 };
 
+
+// forgot password
 export const forgotPassword = (email) => async (dispatch) => {
   try {
     dispatch({ type: FORGOT_PASSWORD_REQUEST });

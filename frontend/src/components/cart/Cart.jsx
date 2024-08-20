@@ -2,7 +2,12 @@ import React, { useEffect } from "react";
 import { useAlert } from "react-alert";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCartItems, removeItemFromCart, updateCartQuantity } from "../../actions/cartAction";
+import {
+  fetchCartItems,
+  removeItemFromCart,
+  updateCartQuantity,
+} from "../../actions/cartAction";
+import { payment } from "../../actions/orderAction";
 
 // let fakeCartItems = [
 //   {
@@ -70,6 +75,10 @@ const Cart = () => {
     }
   };
 
+  const checkoutHandler = () => {
+    dispatch(payment(cartItems, restaurant));
+  };
+
   return (
     <>
       {cartItems.length === 0 ? (
@@ -107,36 +116,39 @@ const Cart = () => {
                     </div>
                     <div className="col-4 col-lg-3 mt-4 mt-lg-0">
                       <div className="stockCounter d-inline">
-                        <span className="btn btn-danger minus"  
-                        onClick={() =>
-                          decreaseQty(item.foodItem,item.quantity)
-                        } 
+                        <span
+                          className="btn btn-danger minus"
+                          onClick={() =>
+                            decreaseQty(item.foodItem, item.quantity)
+                          }
                         >
                           -
-                          </span>
+                        </span>
                         <input
                           type="number"
                           className="form-control count d-inline"
                           value={item.quantity}
                           readOnly
                         />
-                        <span className="btn btn-primary plus"
-                        onClick={()=>
-                          increaseQty(
-                            item.foodItem,
-                            item.quantity,
-                            item.stock
-                          )
-                        }
+                        <span
+                          className="btn btn-primary plus"
+                          onClick={() =>
+                            increaseQty(
+                              item.foodItem,
+                              item.quantity,
+                              item.stock
+                            )
+                          }
                         >
-                          +</span>
+                          +
+                        </span>
                       </div>
                     </div>
                     <div className="col-4 col-lg-1 mt-4 mt-lg-0">
                       <i
                         id="delete_cart_item"
                         className="fa fa-trash btn btn-danger"
-                        onClick={()=>removeCartItemHandler(item.foodItem)}
+                        onClick={() => removeCartItemHandler(item.foodItem)}
                       ></i>
                     </div>
                   </div>
@@ -172,7 +184,11 @@ const Cart = () => {
                   </span>
                 </p>
                 <hr />
-                <button id="checkout_btn" className="btn btn-primary btn-block">
+                <button
+                  id="checkout_btn"
+                  className="btn btn-primary btn-block"
+                  onClick={checkoutHandler}
+                >
                   Check Out
                 </button>
               </div>

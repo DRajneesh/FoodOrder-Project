@@ -15,8 +15,11 @@ import Profile from "./components/users/Profile";
 import UpdateProfile from "./components/users/UpdateProfile";
 import ForgotPassword from "./components/users/ForgotPassword";
 import NewPassword from "./components/users/NewPassword";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCartItems } from "./actions/cartAction";
+import OrderSuccess from "./components/cart/OrderSuccess";
+import ListOrders from "./components/order/ListOrders";
+import OrderDetails from "./components/order/OrderDetails";
+//import { useDispatch, useSelector } from "react-redux";
+//import { fetchCartItems } from "./actions/cartAction";
 
 export default function App() {
 
@@ -24,12 +27,12 @@ export default function App() {
   useEffect(()=>{
     store.dispatch(loadUser());
   },[]);
-  const dispatch=useDispatch();
-  
-  const {user} =useSelector((state) =>state.auth);
-  if(user){
-    dispatch(fetchCartItems());
-  }
+  //const dispatch=useDispatch();
+
+  // const {user} =useSelector((state) =>state.auth);
+  // if(user){
+  //   dispatch(fetchCartItems());
+  // }
 
   return (
     <BrowserRouter>
@@ -48,6 +51,11 @@ export default function App() {
           <Route 
           path="/users/resetPassword/:token" 
           element={<NewPassword/>}/>
+          <Route path="/success" element={<OrderSuccess/>}/>
+          <Route path="/eats/orders/me/myOrders" element={<ListOrders/>}/>
+          <Route path="/eats/orders/:id" element={<OrderDetails/>}/>
+          <Route path="*" element={<h1> The page doesn't exist</h1>}/>
+
         </Routes> 
        
         
