@@ -1,17 +1,31 @@
 import React from "react";
+import {Link, useLocation} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {createOrder} from "../../actions/orderAction";
+import { useEffect } from "react";
 
 const OrderSuccess = () => {
+
+const location =useLocation();
+const searchParams=new URLSearchParams(location.search);
+const session_id=searchParams.get("session_id");
+const dispatch =useDispatch();
+
+useEffect(()=>{
+   dispatch(createOrder(session_id));
+},[dispatch,session_id]);
+
   return (
     <>
       <div className="row justify-content-center">
         <div className="col-6 mt-5 text-center">
           <svg
-            class="checkmark"
+            className="checkmark"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 52 52"
           >
             <circle
-              class="checkmark__circle"
+              className="checkmark__circle"
               cx="26"
               cy="26"
               r="25"
@@ -26,7 +40,7 @@ const OrderSuccess = () => {
 
           <h2>Your Order has been placed successfully.</h2>
 
-          <a>Go to Orders</a>
+          <Link to="/eats/orders/me/myOrders">Go to Orders</Link>
         </div>
       </div>
     </>
