@@ -25,7 +25,7 @@ import {
   UPDATE_PROFILE_SUCCESS,
 } from "../constants/userConstant";
 import { CLEAR_ERROR } from "../constants/restaurantConstant";
-import Header from "../components/layouts/Header";
+//import Header from "../components/layouts/Header";
 import { CLEAR_CART } from "../constants/cartConstant";
 
 //login

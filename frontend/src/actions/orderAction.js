@@ -91,10 +91,12 @@ export const getOrderDetails =( id ) => async(dispatch) =>{
              type: ORDER_DETAILS_REQUEST
             });
         const {data} =await axios.get(`/api/v1/eats/orders/${id}`);
+        
         dispatch({
             type: ORDER_DETAILS_SUCCESS,
-            payload:data.orders,
+            payload:data.order,
         });
+
     } catch (error) {
         dispatch({
             type: ORDER_DETAILS_FAIL,

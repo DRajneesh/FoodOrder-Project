@@ -9,7 +9,7 @@ import { clearErrors, getOrderDetails } from "../../actions/orderAction";
 const OrderDetails = () => {
   const alert = useAlert();
   const dispatch = useDispatch();
-  const { id } = useParams();
+  const {id} = useParams();
   const {
     loading,
     error,
@@ -31,9 +31,11 @@ const OrderDetails = () => {
       alert.error(error);
       dispatch(clearErrors());
     }
+    
+    
   }, [dispatch, alert, error, id]);
 
-  
+ 
 
   const deliveryDetails =
     deliveryInfo &&
@@ -79,7 +81,7 @@ const OrderDetails = () => {
                 <span
                   className={
                     order.orderStatus &&
-                    String(order.orderStatus).includes("Delivered")
+                    String(orderStatus).includes("Delivered")
                       ? "greenColor"
                       : "redColor"
                   }

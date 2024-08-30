@@ -64,7 +64,7 @@ export default function Header() {
                 <Link className="dropdown-item" to="/eats/orders/me/myOrders">
                   Orders
                 </Link>
-                <Link className="dropdown-item" to="/user/me">
+                <Link className="dropdown-item" to="/users/me">
                   Profile
                 </Link>
                 <Link className="dropdown-item" to="/" onClick={logoutHandler}>
